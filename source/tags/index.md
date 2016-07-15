@@ -1,6 +1,8 @@
 ---
-layout: "tags"
-title: "Tags"
-description: "Hey, this is Tags."
-header-img: "img/tag-bg.jpg"
+layout: tags
+title: Tags
+description: ''
+header-img: img/tag-bg.jpg
 ---
+
+

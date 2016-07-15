@@ -3,36 +3,36 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Kaijun's Blog
+title: Kris Blog
 subtitle: To Be A Lean Developer!
-author: Kaijun Chen
+author: kris.zhang
 language:
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://kaijun.rocks
-root: /hexo-theme-huxblog/
+url: kriszhang.com
+root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 
 #Custom Setting Start
 
 # Site settings
-SEOTitle: Kaijun的博客 | Kaijun's Blog
+SEOTitle: Kris的博客 | Kris Blog
 header-img: img/home-bg.jpg
-email: Kaijun.cn@gmail.com
-description: ""
-keyword: ""
+email: zhangyan985@foxmail.com
+description: "两只bug鸣翠柳，一行代码上西天"
+keyword: "算法 大数据 系统架构 机器学习 Java技术 中间件 高并发"
 
 
 # SNS settings
 # RSS: false
-weibo_username:     Demonbane
-zhihu_username:     Demonbane
-github_username:    Kaijun
-twitter_username:   Demonbane_x
-facebook_username:  demonbane.cn
+weibo_username:     kris-zhang
+zhihu_username:     kris
+github_username:    kris-zhang
+twitter_username:   kriszhang
+facebook_username:  kriszhang.cn
 linkedin_username:  kaijun-chen-42089354
 
 # Build settings
@@ -43,7 +43,7 @@ anchorjs: true                          # if you want to customize anchor. check
 #disqus_username: _your_disqus_short_name_
 
 # Duoshuo settings
-duoshuo_username: kaijun
+duoshuo_username: kriszhang
 # Share component is depend on Comment so we can NOT use share only.
 duoshuo_share: true                     # set to false if you want to use Comment without Sharing
 
@@ -58,8 +58,8 @@ ga_domain: huangxuan.me
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "我要成为魔法师!"
-sidebar-avatar: /img/avatar.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-about-description: "两只bug鸣翠柳，一行代码上西天"
+sidebar-avatar: img/avatar.png  # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 # Featured Tags
@@ -75,18 +75,6 @@ friends: [
     },{
         title: "Hux Blog",
         href: "http://huangxuan.me"
-    },{
-        title: "Foo",
-        href: "#"
-    },{
-        title: "Bar",
-        href: "#"
-    },{
-        title: "Example Friends",
-        href: "#"
-    },{
-        title: "It helps SEO",
-        href: "#"
     }
 ]
 
@@ -147,5 +135,5 @@ theme: huxblog
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/Kaijun/hexo-theme-huxblog
-  branch: gh-pages
+  repo: https://github.com/kris-zhang/kris-zhang.github.com
+  branch: master
