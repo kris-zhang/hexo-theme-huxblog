@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Kris Blog
+title: Kris' Blog
 subtitle: To Be A Lean Developer!
 author: kris.zhang
 language:
@@ -19,7 +19,7 @@ permalink_defaults:
 #Custom Setting Start
 
 # Site settings
-SEOTitle: Kris的博客 | Kris Blog
+SEOTitle: Kris的博客 | Kris' Blog
 header-img: img/home-bg.jpg
 email: zhangyan985@foxmail.com
 description: "两只bug鸣翠柳，一行代码上西天"
