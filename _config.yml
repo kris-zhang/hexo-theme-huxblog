@@ -28,12 +28,12 @@ keyword: "算法 大数据 系统架构 机器学习 Java技术 中间件 高并
 
 # SNS settings
 # RSS: false
-weibo_username:     kris-zhang
-zhihu_username:     kris
+weibo_username:     kriszhang123 
+zhihu_username:     zhang-yan-32-14
 github_username:    kris-zhang
-twitter_username:   kriszhang
+twitter_username:   TooBusyTooLazy
 facebook_username:  kriszhang.cn
-linkedin_username:  kaijun-chen-42089354
+linkedin_username:  岩-张-83aa7a121
 
 # Build settings
 anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
