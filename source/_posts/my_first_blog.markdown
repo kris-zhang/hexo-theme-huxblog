@@ -5,6 +5,7 @@ subtitle: ''
 date: 2016-07-15T12:00:00.000Z
 author: kris.zhang
 header-img: post-bg-2016.jpg
+wechat_pig: lastone.png
 tags:
   - LIFE
 ---
