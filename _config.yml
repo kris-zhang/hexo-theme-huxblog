@@ -70,18 +70,13 @@ featured-condition-size: 1              # A tag will be featured if the size of 
 # Friends
 friends: [
     {
-        title: "Kaijun's Blog",
-        href: "http://blog.kaijun.rocks"
-    },{
-        title: "Hux Blog",
-        href: "http://huangxuan.me"
+        title: "youdang's Blog",
+        href: "http://youdang.github.io"
     }
 ]
 
 
 #Custom Setting End
-
-
 
 # Directory
 source_dir: source
