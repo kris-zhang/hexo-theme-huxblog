@@ -4,7 +4,8 @@ title: 一个有趣的骰子问题
 subtitle: google面试题
 date: 2016-07-17T12:00:00.000Z
 author: kris.zhang
-header-img: post-bg-2016.jpg
+header-img: head.jpg
+wechat_pig: lastone.png
 mathjax: true
 tags:
   - 算法
