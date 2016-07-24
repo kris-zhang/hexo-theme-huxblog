@@ -132,3 +132,10 @@ deploy:
   type: git
   repo: https://github.com/kris-zhang/kris-zhang.github.com
   branch: master
+
+#打赏
+donate:
+  enable: true
+  text: Enjoy it ? Donate me !  欣赏此文？求鼓励，求支持！
+  wechat: /img/wechat_pay.jpg
+  #alipay: /img/alipay.jpg

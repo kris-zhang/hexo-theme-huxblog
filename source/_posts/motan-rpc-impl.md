@@ -5,6 +5,7 @@ subtitle: motan源码导读
 date: 2016-07-21T11:00:00.000Z
 author: kris.zhang
 header-img: head.jpg
+wechat_pig: motan_arch.png
 mathjax: true
 tags:
   - 框架
