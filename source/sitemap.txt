@@ -1,4 +1,4 @@
-kriszhang.com
-krishang.com/motan-rpc-iml
-kriszhang.com/shaizi_google
-kriszhang.com/my_first_blog
+http://kriszhang.com
+http://kriszhang.com/motan-rpc-iml
+http://kriszhang.com/shaizi_google
+http://kriszhang.com/my_first_blog
