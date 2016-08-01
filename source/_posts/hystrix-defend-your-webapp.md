@@ -156,9 +156,9 @@ executionIsolationThreadTimeoutInMilliseconds | 执行线程的超时时间
 
 ## 使用优雅降级
 
-有时，当服务提供者不可用，我们并不希望直接抛出异常，或不做任何处理。我们更希望对服务做降级处理。这里举个例子，如果查询标签服务不可用，我们可以返回一组默认的标签，比如我们要查看首页大品类，他包括：家电、图书、音响等等，我们在系统初始化的时候默认装载一批`兜底数据`，当服务不可用，我们降级到这些兜底数据上，虽然数据不完全，但是基本可用。使用hystrix继承机制可以非常方便的添加优雅降级策略。比如上文的
+当服务提供者不可用，而我们又不希望直接抛出异常，或不做任何处理。我们更希望对服务进行降级。这里举个查询标签服务的例子，如果该服务不可用，我们是可以返回一组默认的标签的。比如，我们要查看首页大品类，它包括：家电、图书、音响等，这时我们可以在系统初始化中默认装载一批`兜底数据`，当服务不可用，我们则降级到这些兜底数据上，虽然数据可能不完备，但基本可用。使用hystrix可以非常方便的添加优雅降级策略，只需要复写`getFallback()`方法就可以了。
 
-```
+```java
 // 降级方式
 @Override
 protected List<String> getFallback() {
@@ -166,16 +166,9 @@ protected List<String> getFallback() {
 }
 ```
 
-当出现异常，或执行超时，将会调用次方法，进行优雅降级。这里需要注意相关配置
+当出现异常，或执行超时，都会调用此方法进行优雅降级。我们这里需要确保配置`withFallbackEnabled`是开启的。有的时候我们会在降级的代码中也访问远程数据（比如访问redis），那么当并发量上来之后，也需要保护我们的优雅降级调用，此时可以配置`withFallbackIsolationSemaphoreMaxConcurrentRequests`，当调用降级代码的并发数超过配置值时会抛出`REJECTED_SEMAPHORE_FALLBACK`异常
 
-参数                                                  | 解释
---------------------------------------------------- | -------------
-withFallbackEnabled                                 | 是否开启优雅降级
-withFallbackIsolationSemaphoreMaxConcurrentRequests | 这个控制优雅降级的最大并发
-
-这里主要说一下优雅降级的最大并发数。当降级并发达到这个数的时候，则不会再进行优雅降级，而是抛出REJECTED_SEMAPHORE_FALLBACK异常。这里主要是为了保护降级逻辑，因为降级中也可能会访问远程服务。
-
-wiki文档上说了几种降级模式：
+降级有很多种玩法，官方wiki也说了几种降级模式，我们可以在实际工作中根据需要编写我们的降级策略：
 
 - failfast：表示马上抛出异常，即不会降级
 - fail silent：或者叫做failsafe，默默的什么都不做，并发度最大
@@ -183,7 +176,7 @@ wiki文档上说了几种降级模式：
 - failback stubbed：返回默认的数据，比如上文的默认标签
 - failback cache via network：通过网络访问缓存数据
 
-## 开启circuit-breaker
+## 使用熔断器
 
 ## 使用request-cache
 
