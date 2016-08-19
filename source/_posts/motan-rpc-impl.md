@@ -9,10 +9,8 @@ wechat_pig: motan_arch.png
 mathjax: true
 tags:
   - 框架
-  - 服务化
   - RPC
   - 开源
-  - motan
 ---
 
 > 计算机科学领域的任何问题都可以通过增加一个间接的中间层来解决
