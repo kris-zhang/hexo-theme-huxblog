@@ -1,7 +1,7 @@
 ---
 title: 2016精选文章推荐
 date: 2016-08-09T14:01:43.000Z
-subtitle: 8月9日-8月14日
+subtitle: 8月15日-8月22日
 layout: post
 author: kris.zhang
 header-img: head.jpg
@@ -14,6 +14,36 @@ tags:
 > 越来越需要过滤的本质是因为信息爆炸，而过滤的本质应该是一种分类。越精细，就越准确，效果也就越好，个性化也就越强，也这能够解释为什么推荐系统越来越流行的原因。
 
 ![head](articles2016/wechat.jpg)
+
+# 8月15日-8月22日
+
+[SRE：源自Google的DevOps最佳实践 | 学在GOPS](https://mp.weixin.qq.com/s?__biz=MzA4Nzg5Nzc5OA==&mid=2651661472&idx=1&sn=0a829928448dfeb6a562225a709b3bf7&scene=1&srcid=0817JtU5CDpqdLQLVxOU3RTh&key=8dcebf9e179c9f3a9e324b5e9bb376658ba9844434e14b7c46cb666af3225673a269a9985ee91e491b63fe395ec31997)
+
+> 来自谷歌的分享，能让你全面了解到谷歌的devops的日常，读完以后感觉特别羡慕谷歌的工程师，如果能去谷歌工作，这辈子死而无憾了。
+
+[Qunar App 用户个性化需求预测](https://mp.weixin.qq.com/s?__biz=MzA3NDcyMTQyNQ==&mid=2649255448&idx=1&sn=f6a40d64672aec55032e54fe999ee05e&scene=1&srcid=08215d4xFo3X9GK3pQ0JkY6g&key=8dcebf9e179c9f3a58f2817148510331a174a183c29dc165bfbf8784a1ed0d6735297d50dde6f857fbbb84a39be0b26e)
+
+> 这篇文章讲的不够详细，具体的算法细节可能要自己看了，不过他大概给了一个猜你喜欢的实现思路，带有时间序列的item based CF有点意思。然后通过主观贝叶斯，rankboost lambdamart做合并排序。值得去学习下具体的算法实现。
+
+[如何实现1080P延迟低于500ms的实时超清直播传输技术](https://mp.weixin.qq.com/s?__biz=MzAwMDU1MTE1OQ==&mid=2653547697&idx=1&sn=acc748b7fcf0058b58e244970e51eabc&scene=1&srcid=0820reEzHqOlZ448ghwmt7uR&key=8dcebf9e179c9f3a987e2a3d648565893815cd8c1540ab1c530f173748c924f73e9d971599867dbf631a9e2854a96570)
+
+> 纯干货，围绕着视频传输的整个链条进行梳理，讲解了各个可能影响视频传输延迟的每个点，然后着重从协议层解决延迟问题，他们公司基于udp设计实现了一套视频传输协议，重点讲解的就是这个协议，作者经验还是非常丰富的。
+
+[运维小技巧：使用ss命令代替 netstat](https://mp.weixin.qq.com/s?__biz=MjM5MTY2Mjg3Ng==&mid=203157012&idx=2&sn=1f632c067a75764a071d02bf6175cfd2&scene=1&srcid=08170W444hdKhetpY2M4zvH2&key=8dcebf9e179c9f3a210b4739f460023f56db492f2b27fb7aa7a7a50bbaae5f773066d7a64da11f69929444ed3501d5fc)
+
+> 如果你还是在使用ifconfig，那么你应该更新你的工具库了，使用iproutes代替nettools吧！ss真的要比ifconfig快很多。
+
+[是时候闭环Java应用了](https://mp.weixin.qq.com/s?__biz=MzIwODA4NjMwNA==&mid=2652897928&idx=1&sn=5087d67b74478deb38904fd1ec2283e3&scene=1&srcid=0816KoLf266CbGobn6s1IOzh&key=8dcebf9e179c9f3a8352cb27ba15c9a984a6547095b4c2aa2c462219c535aaa90c1691f2f284344ab3615067c6868970)
+
+闭环你的应用，这个原则很实用在微服务场景下，qunar的配置都在写在服务器的启动脚本的，系统环境实际上我们只需要一个jre即可，使用什么容器都应该是使用者去定义
+
+[关于自动化配置还有什么好说的呢？](https://mp.weixin.qq.com/s?__biz=MjM5NzM0MjcyMQ==&mid=2650067203&idx=1&sn=2a6eaef84d7151a119192c9294252e11&scene=1&srcid=0816842T49q6mNGwhpFct8T6&key=8dcebf9e179c9f3ad2b9c679657617fe0a8c256a2c21c3dad522d246c848752e0825214387ea3f246886c2d4859638db)
+
+> 这个对于配置的本质思考的不错，我们应该将其理解成一个系统状态，而不是一堆脚本，值得思考一下
+
+[基于Event Sourcing和DSL的积分规则引擎设计实现案例](https://mp.weixin.qq.com/s?__biz=MzA5Nzc4OTA1Mw==&mid=2659597948&idx=1&sn=754df1597fd042537be8c25d073d3c98&scene=1&srcid=0815xhG0D7IBlMhPFs7n3opv&key=8dcebf9e179c9f3afca03c779c05f96af61b4fd17bd119f51c5cdeb101dd815e0ada562b942c141ba0130b65853a6105)
+
+> 积分是一个常见的场景，他可以单独抽象出一个公共服务。作者设计的这套积分系统所用到的技术并不复杂，事件总线，规则引擎DSL，都是值得学习的。但是有一点有一些不太同意，就是插件那块，有可能后期插件的维护成本变得很高。动态规则这里也可以更深入的挖掘一下，目前规则看似比较单一。有空研究一下规则引擎。
 
 # 8月9日-8月14日
 
