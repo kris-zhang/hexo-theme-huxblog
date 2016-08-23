@@ -19,7 +19,7 @@ tags:
 
 [SRE：源自Google的DevOps最佳实践 | 学在GOPS](https://mp.weixin.qq.com/s?__biz=MzA4Nzg5Nzc5OA==&mid=2651661472&idx=1&sn=0a829928448dfeb6a562225a709b3bf7&scene=1&srcid=0817JtU5CDpqdLQLVxOU3RTh&key=8dcebf9e179c9f3a9e324b5e9bb376658ba9844434e14b7c46cb666af3225673a269a9985ee91e491b63fe395ec31997)
 
-> 来自谷歌的分享，能让你全面了解到谷歌的devops的日常，读完以后感觉特别羡慕谷歌的工程师，如果能去谷歌工作，这辈子死而无憾了。
+> 来自谷歌的分享，能让你全面了解到谷歌的devops的日常，读完以后感觉特别不觉明历，也羡慕谷歌工程师能够接触到全世界最好的资源和最大的流量实践
 
 [Qunar App 用户个性化需求预测](https://mp.weixin.qq.com/s?__biz=MzA3NDcyMTQyNQ==&mid=2649255448&idx=1&sn=f6a40d64672aec55032e54fe999ee05e&scene=1&srcid=08215d4xFo3X9GK3pQ0JkY6g&key=8dcebf9e179c9f3a58f2817148510331a174a183c29dc165bfbf8784a1ed0d6735297d50dde6f857fbbb84a39be0b26e)
 
@@ -100,6 +100,7 @@ tags:
 - [Coroutine in Java - Quasar Fiber实现][1119]
 - [中国的支付清算体系是怎么玩的？][1120]
 - [秒杀系统架构分析与实战][1121]
+- [滴滴passport设计之道:帐号体系高可用的7条经验](https://mp.weixin.qq.com/s?__biz=MzAwMDU1MTE1OQ==&mid=2653547482&idx=1&sn=13675fae5e037d720a9e9fb4a4861afd&scene=1&srcid=0823uqCZQB4ZorkL0lZfpy7J&key=cf237d7ae24775e8e6b3106e6a2db91dbc3333bb81e65f277ef44396816795338c580626207f6e1774f5c9b8ca0f3fc1)
 
 [1]: https://mp.weixin.qq.com/s?__biz=MzA5Nzc4OTA1Mw==&mid=2659597908&idx=1&sn=99bfd221634b539c08bf81cf0bf9e810&scene=1&srcid=0808ZZzPbMthTfzdUo7uMIfi&key=8dcebf9e179c9f3a8a1e453fca92b487f7c9c61780053719adbc5841a0451c6040eefe04ff38fce1982d8859a5e75383&ascene=0&uin=MzM1OTYzMjk1&devicetype=iMac%20MacBookAir7,2%20OSX%20OSX%2010.11.6%20build%2815G31%29&version=11020201&pass_ticket=544pih5rM0fs390LHFij67Kmi%2bqqmx1%2brpl43MnWwprR8JivDnzRcAYoqPryDLMk
 [10]: https://mp.weixin.qq.com/s?__biz=MzI4NzE1NTYyMg==&mid=2651101480&idx=1&sn=dca99936779611b04bf2136616539625&scene=0&key=8dcebf9e179c9f3a199d9518da693cde7a912123ff73cf073cd4f322c5ef6e68e54a80eae522eda82610a6a997ec8efa&ascene=0&uin=MzM1OTYzMjk1&devicetype=iMac%20MacBookAir7,2%20OSX%20OSX%2010.11.6%20build%2815G31%29&version=11020201&pass_ticket=544pih5rM0fs390LHFij67Kmi%2bqqmx1%2brpl43MnWwprR8JivDnzRcAYoqPryDLMk
