@@ -15,6 +15,28 @@ tags:
 
 ![head](articles2016/wechat.jpg)
 
+# 8月23日-8月29
+
+[深入理解JDBC的超时设置](http://www.importnew.com/2466.html)
+
+> 这篇文章从一个线上故障入手，分析了transcation超时、statement超时，socket超时的意义和实现原理，以及遇到的问题。其中操作系统层面也有一个默认的socket超时时间。不过这里并没有给出比较好的设置建议，个人觉得第一次配置的时候我们需要经验设定，然后通过历史数据进行求解
+
+[Pitcher无线接入系统](http://mp.weixin.qq.com/s?__biz=MzA3NDcyMTQyNQ==&mid=2649255537&idx=1&sn=f5747b82de62640fc3142950dd13a813&scene=1&srcid=0823piIHCMqzDu2n3h9WRf1L#rd)
+
+> 这个是一篇非常不错的文章，使用go实现了一个反向代理中间件，具有非常好的性能和灵活性，通过这篇文章能够了解到反向代理服务器的一些设计要点，比如进程模型，热配置加载等等，文章还提到了module模型也是值得深入学习的。
+
+[浅谈高可用的系统](http://mp.weixin.qq.com/s?__biz=MzIyNjE4NjI2Nw==&mid=2652557200&idx=1&sn=57777ca94f596cf2864bdb60d8cb1ba7&scene=1&srcid=0823UYmq2xZDiHb8rltmNNyM#rd)
+
+> 这个是一篇老文章了，读了很多遍，一个公共号又推荐出来了。也有很多人没有读过，因此mark到这里。作者主要谈对高可用架构的理解，从多方面进行思考，最后升华到公司对待工程的科学精神。我读该篇最大收获就是理解了高可用并不只是代码写的可靠，而是一整套的流程，管理，质量控制，测试，等等多方面
+
+[一篇文章说透当下大热的一元夺宝！](http://mp.weixin.qq.com/s?__biz=MjM5OTEwNjI2MA==&mid=2651732124&idx=2&sn=db0eb23b9e757164e67b882e85a7e378&scene=1&srcid=0823uJnJW6JkYqgBhA3nwxX4#rd)
+
+> 这不是一篇技术文章，但是写的非常好，分析了目前整个一元购得市场情况和风靡原因。记得一元购业务刚 刚兴起的时候，网易一元购的童鞋想拉我入伙，我看了一下，觉得市场擦边球过于走险，于是回绝了。
+
+[高性能数据库连接池的内幕](http://mp.weixin.qq.com/s?__biz=MzI3MzEzMDI1OQ==&mid=2651814835&idx=1&sn=cb775d3926ce39d12fa420a292c1f83d&scene=0#rd)
+
+> 之前加过这哥们的微信，然后有一天偶然在朋友圈中看到一个特别好的朋友点赞，然后我才知道，这哥们跟我的好朋友是室友。互联网圈子真是小啊。文章我有仔细读过，caelus名字不明白什么意思。其中讲了很多优化技巧值得学习，比如inline、链接复用、事务优化，无锁对象池等。如果了解pg的话，pg里面有一个中间件叫做pg-bouncer这个是一款数据库连接池，用来解决分布式系统节点过多，造成单机数据库活动链接被占满。他的思路是bouncer集群与数据库建立稳定的链接数目，其他节点通过短连接与bouncer进行交互，这样能够极大提高链接数量。按照这个思路，我们是不是可以采用中间件技术，分库分表规则路由放到中间件上，然后线程池就可以正常使用dbcp等，把节点做强，并且是可横向扩展的。这个中间件可以使用go等高并发编程友好的语言编写。客户端值需要与这个中间件代理打交道就可以了，也可以使用短连接。
+
 # 8月15日-8月22日
 
 [SRE：源自Google的DevOps最佳实践 | 学在GOPS](https://mp.weixin.qq.com/s?__biz=MzA4Nzg5Nzc5OA==&mid=2651661472&idx=1&sn=0a829928448dfeb6a562225a709b3bf7&scene=1&srcid=0817JtU5CDpqdLQLVxOU3RTh&key=8dcebf9e179c9f3a9e324b5e9bb376658ba9844434e14b7c46cb666af3225673a269a9985ee91e491b63fe395ec31997)
