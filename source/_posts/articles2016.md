@@ -1,7 +1,7 @@
 ---
-title: 2016精选文章推荐
+title: 2016精选文章推荐(8月30日-9月5日)
 date: 2016-08-09T14:01:43.000Z
-subtitle: 8月15日-8月22日
+subtitle: 8月30日-9月5日
 layout: post
 author: kris.zhang
 header-img: head.jpg
@@ -11,11 +11,33 @@ tags:
   - 精选文章推荐
 ---
 
-> 越来越需要过滤的本质是因为信息爆炸，而过滤的本质应该是一种分类。越精细，就越准确，效果也就越好，个性化也就越强，也这能够解释为什么推荐系统越来越流行的原因。
+> 越来越需要过滤的本质是因为信息爆炸，而过滤的本质应该是一种分类。越精细，就越准确，效果也就越好，个性化也就越强，也这能够解释为什么推荐系统越来越流行。
 
 ![head](articles2016/wechat.jpg)
 
-# 8月23日-8月29
+# 8月30日-9月5日
+
+[JVM的Stop The World，安全点，黑暗的地底世界](http://calvin1978.blogcn.com/articles/safepoint.html?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)
+
+> 白衣江南的博客有两个特点，其一是文笔比较幽默，其二是文末总要来一个'美女福利'。这篇文章讲解java的safepoint概念，给了几个jvm的常用参数，用来观察安全点触发时间和操作类型。简单来说安全点就是JVM STW时的一个时间点，这个点以后所有线程停止执行，从而vm线程执行某些操作，但这里不一定GC，比如instrumentation，取消偏向锁等等。文章的外链引用也值得仔细一读，jvm的知识点很多，需要平时一点一滴的慢慢积累。
+
+[MySQL 中你应该使用什么数据类型表示时间？](http://mp.weixin.qq.com/s?__biz=MjM5NjQ4MjYwMQ==&mid=2664608099&idx=1&sn=0ad26c4963d68d8b00a553b43143afde&scene=1&srcid=0903ZqOzLqSQvoMbbWy5ewOn#rd)
+
+> mysql关于时间，你是应该用INT还是timestamp还是datetime，有人说我喜欢用timestamp，为什么呢？他好，但是相比datetime有什么优势呢？作者的最后结论是在mysql中最好使用datetime，为什么？详见 本文吧！
+
+[在产品运营中，为什么我们需要打造爆款？](http://mp.weixin.qq.com/s?__biz=MjM5OTEwNjI2MA==&mid=2651732211&idx=1&sn=2f3cbe81ab5b223667fe21135a924bfd&scene=0#rd)
+
+> 人人都是产品经理的这个公共号真心不错，非常多的干货，我觉得作为一个程序员，也需要锻炼自己的产品思维，因此我打算尽量挑一些这上面的好文章分享。本篇文章教你如何打造爆款产品。大家熟知的一个逻辑陷阱：如果平台没有用户，商家是不会来你这里的；如果平台没有商家，用户是不会来你这里的。如何解决这个逻辑陷阱呢？其实打造爆款就是一个好的解决思路。
+
+[可视化与领域驱动设计](http://mp.weixin.qq.com/s?__biz=MzI3MzEzMDI1OQ==&mid=2651814846&idx=1&sn=9348fd89557cf90d042353c8c47ed21d&scene=1&srcid=0904VrIlR0Yz3aP0gYYk9MSo#rd)
+
+> 本文主要探讨了如何获得Bounded Context，如果你没有听过Bounded Context，那么你需要看一下关于DDD的内容了，或者看一下《微服务设计》。总之你进行系统设计一定需要清晰明确的定义你的边界上下文，就像细胞膜一样。这篇文章从一个可视化角度教你如何获得这个界定上下文。颠覆了我对画图的认知。原来还可以在白板上折腾出这么有用的东西！
+
+[开源离线数据同步工具 DataX 升级至 3.0，支持十余款主流开源数据系统](http://mp.weixin.qq.com/s?__biz=MjM5NjQ4MjYwMQ==&mid=2664608092&idx=1&sn=83c3d9c9b6a7ea36a9f3fc1c462daf03&scene=1&srcid=0903JyIFlMoof9Edw5RwkYNP#rd)
+
+> DataX 是阿里巴巴集团内被广泛使用的离线数据同步工具/平台，实现包括 MySQL、Oracle、HDFS、Hive、OceanBase、HBase、OTS、ODPS 等各种异构数据源之间高效的数据同步功能。这篇文章基本上参考了datax的官方文档，他讲解了datax的设计理念和实现方式。通过这篇文章能够大概了解datax所能做到的事情。如果你听说过阿里巴巴的canal，这个有点类似，不过datax支持的数据库更多一些，也更灵活。蚂蚁内部似乎也是用datax做数据同步。
+
+# 8月23日-8月29日
 
 [深入理解JDBC的超时设置](http://www.importnew.com/2466.html)
 
