@@ -27,7 +27,8 @@ keyword: "算法 大数据 系统架构 机器学习 Java技术 中间件 高并
 
 
 # SNS settings
-# RSS: false
+RSS: true
+
 weibo_username:     kriszhang123
 zhihu_username:     zhang-yan-32-14
 github_username:    kris-zhang
