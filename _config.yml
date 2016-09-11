@@ -16,6 +16,12 @@ root: /
 permalink: :title/
 permalink_defaults:
 
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+
 #Custom Setting Start
 
 # Site settings
@@ -27,7 +33,7 @@ keyword: "算法 大数据 系统架构 机器学习 Java技术 中间件 高并
 
 
 # SNS settings
-RSS: true
+# RSS: true
 
 weibo_username:     kriszhang123
 zhihu_username:     zhang-yan-32-14
