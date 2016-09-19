@@ -15,6 +15,26 @@ tags:
 
 ![head](articles2016/wechat.jpg)
 
+# 9月13日-9月19日
+
+[单点系统架构的可用性与性能优化](http://mp.weixin.qq.com/s?__biz=MjM5ODYxMDA5OQ==&mid=2651959480&idx=1&sn=337bd74410a6bef616128fd17abd08a8&scene=21#wechat_redirect) [lvs为何不能完全替代DNS轮询](http://mp.weixin.qq.com/s?__biz=MjM5ODYxMDA5OQ==&mid=2651959595&idx=1&sn=5f0633afd24c547b895f29f6538baa99&scene=1&srcid=0918OyETJpC1RcycQYlZLYTk#rd)
+
+> 这两篇文章有些类似，第一篇主要讲解了单点系统如何保证可用性，主要有shadow-master模式、减少与单点交互、水平扩展等。我看这个问题的本质其实就是一种分散技术，将单点分散，至于怎么分散，实际上就是技术选型上的事情。第二篇文章讲解了接入层架构技术演进，包括DNS、nginx+keepalive lvs+keepalive DNS轮询等技术。
+
+[JVM源码分析之堆外内存完全解读](http://mp.weixin.qq.com/s?__biz=MzIzNjI1ODc2OA==&mid=403168235&idx=1&sn=ecc804ba7231996d43c05138566d074a&scene=19#wechat_redirect) [JVM源码分析之不可控的堆外内存](http://mp.weixin.qq.com/s?__biz=MzIzNjI1ODc2OA==&mid=2650886854&idx=1&sn=ae73716af7b7a778955117e85e3e85db&chksm=f32f6679c458ef6f09282b9c5eb1bc571abe0d2effd384980ad24153f9e9ed0ae273038a10a9&scene=0#rd)
+
+> 这两篇文章主要分析了对外内存的实现原理，使用场景，以及作者遇到的一个堆外内存的问题。这个人是支付宝的寒泉子，jvm团队的，在内网中经常看到他的文章，然后觉得写的很不错，这里我推荐一下，有问题可以直接粘贴给他，他还是比较热心解决各种千奇百怪的问题。
+
+[水平分库分表的关键步骤以及可能遇到的问题](http://mp.weixin.qq.com/s?__biz=MzA5Nzc4OTA1Mw==&mid=2659598156&idx=1&sn=b5d4e509dc6a9c908bef2bad8ce27a25&scene=0#rd)
+
+> 这篇是分库分表的一个概览。里面又很多内容我在工作中真的用到了，比如id分配，我们的这边id分配规则要比雪花算法更复杂一些。在领域建模的时候最重要的就是分片规则和策略，这些我们可以同使用中间件来自定义（写groovy脚本或者实现java接口）然后中间件根据规则自动帮你路由到指定数据源。我们规定是需要尽量避免跨分片，真的需要跨分片，中间件只能帮你做有限的事情，性能也很差，因此类似count计数这种，我们都是配合tair缓存。
+
+[黄东旭：分布式数据库模式与反模式](http://mp.weixin.qq.com/s?__biz=MzI3NDIxNTQyOQ==&mid=2247484004&idx=1&sn=36d30d0446f7ca16eb9ca7dced100ffc&scene=1&srcid=0912IZoRcFJHqL37SFAv2Tvx#rd)
+
+[MySQL 和 B 树的那些事](http://blog.jobbole.com/105644/)
+
+> 关于mysql和B+树的文章非常多，这篇是我见过写的最清楚的文章了。适合入门了解使用，实际上若不是做底层架构，这种结构平常代码中基本上用不到。
+
 # 9月6日-9月12日
 
 [深度长文：我对CQRS/EventSourcing架构的思考](http://mp.weixin.qq.com/s?__biz=MzA5Nzc4OTA1Mw==&mid=2659598125&idx=1&sn=ca39d804aede5ee46988b6d635217027&scene=0#rd)

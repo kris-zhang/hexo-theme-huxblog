@@ -6,9 +6,9 @@
 
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="">
-    <div style='margin:0 auto;width:0px;height:0px;overflow:hidden;'>
-        <img src='<%= page.wechat_pig %>' width='700'>
-    </div>
+  <div id='wx_pic' style='margin:0 auto;display:none;'>
+    <img src='<%= page.wechat_pig %>' />
+  </div>
 
     <%- partial('_partial/nav') %>
 
@@ -20,7 +20,7 @@
 
 
 <!-- Image to hack wechat -->
-<img src="<%= config['url'] %><%= config['root'] %>img/icon_wechat.png" width="0" height="0" />
+<img src="<%= config['url'] %><%= config['root'] %><%= page.wechat_pig %>" width="0" height="0" />
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
 </body>
