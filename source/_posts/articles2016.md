@@ -1,7 +1,7 @@
 ---
-title: 2016精选文章推荐(9月6日-9月12日)
+title: 2016精选文章推荐(9月19日-9月24日)
 date: 2016-08-09T14:01:43.000Z
-subtitle: 9月6日-9月12日
+subtitle: 9月19日-9月24日
 layout: post
 author: kris.zhang
 header-img: head.jpg
@@ -14,6 +14,20 @@ tags:
 > 越来越需要过滤的本质是因为信息爆炸，而过滤的本质应该是一种分类。越精细，就越准确，效果也就越好，个性化也就越强，也这能够解释为什么推荐系统越来越流行。
 
 ![head](articles2016/wechat.jpg)
+
+# 9月19日-9月24日
+
+[分布式架构的核心要素和设计方法](http://mp.weixin.qq.com/s?__biz=MzIwMjE5MDU4OA==&mid=2653120634&idx=1&sn=8173b2f771c1118d775cad34ea028ed0&chksm=8d35b3e9ba423aff3a9facd8ddd4dab1462fd4f5584aeb3881c434f107b14a4f97bc628d4a1d&scene=1&srcid=09248tzz4UZD0jXEU9Yg1Cei#rd)
+
+> 这大哥讲的真棒，处处讲到了本质上。十分随意却气场十足。弹性应用架构，弹性可拥挤，弹性可伸缩。重构迭代并不一定值得尊敬，更靠谱的是提前布局。分布式的本质就是解决运算能力不足和存储能力不足的问题（这个观点不完全正确，还有提高全系统可用性）。分布式平台可以分为开发态和运行态。RASP（可用，可靠，可伸缩，性能）。按照这个哥们的说法，蚂蚁金服的分布式框架，对业务层伤害实在是太大了，不能算一个好的分布式框架。编程范式，通信协议，数据协议，会话。
+
+[Java Hotspot G1 GC的一些关键技术](http://tech.meituan.com/g1.html)
+
+> 算是看过最好的将g1算法的文章，值得好好读一下。
+
+[美团线上真实流量压测工具构建](http://mp.weixin.qq.com/s?__biz=MzAwMDU1MTE1OQ==&mid=404381213&idx=1&sn=d92aaeb22f5cb85333c73798f1921672&scene=1&srcid=09245H6UcI7HS5ilAoCFyDcF#rd)
+
+> 最近在做全链路压测，因此对这种压测类文章比较感兴趣，文章说了一些压测工具的弊端，比如Jmeter， Gatling、Grinder、Locust等等，然后说这些不符合实际业务要求，所以自己就只好搭建一套喽。似乎跟实际业务要求有出入已经成了一种家常便饭。文章有两点值得学习，其一是对压测的抽象（init，run，destroy），这个就是XUnit的before after和run；其二是thrift流量copy，然后将其存储到redis，下游在读取这些真实流量进行回播。不足的是无法处理事务，针对查询类可以用这种方式。
 
 # 9月13日-9月19日
 
