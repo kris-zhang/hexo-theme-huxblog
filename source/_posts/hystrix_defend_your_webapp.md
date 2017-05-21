@@ -16,11 +16,11 @@ tags:
 
 > 凡是可能出错的事必定会出错
 
-![豪猪](hystrix-defend-your-webapp/hystrix.png)
+![豪猪](hystrix_defend_your_webapp/hystrix.png)
 
 hystrix(`[hɪst'rɪks]`)是豪猪的意思。豪猪是一种哺乳动物，全身是刺用以更好的保护自己。netflix使用这畜生来命名这框架实在是非常的贴切，意味着hystrix能够像豪猪的刺一样保护着你的应用。下面是一张豪猪的`高清无码大图`。
 
-![豪猪](hystrix-defend-your-webapp/豪猪.jpg)
+![豪猪](hystrix_defend_your_webapp/豪猪.jpg)
 
 本文专门探讨netflix的hystrix框架。首先会说明在一次请求中调用多个远程服务时可能会出现的雪崩问题，然后提出几个解决这些问题的办法，从而引出了`hystrix`框架；之后我们会给出一个简单的例子试图说明hystrix是如何解决上述问题的；文章主要探讨了线程池隔离技术、信号量隔离技术、优雅降级、熔断器机制。
 
@@ -32,11 +32,11 @@ hystrix(`[hɪst'rɪks]`)是豪猪的意思。豪猪是一种哺乳动物，全�
 
 我们先来看一个分布式系统中常见的简化的模型。此图来自hystrix的[官方wiki](https://github.com/Netflix/Hystrix/wiki)，因为模型比较简单我这里就在不在重复画图，直接使用现成的图片做补充说明。
 
-![一个简单的模型](hystrix-defend-your-webapp/hystrix_soa1.png)
+![一个简单的模型](hystrix_defend_your_webapp/hystrix_soa1.png)
 
 App Container可以是我们的应用容器，比如`jetty`，`tomcat`，也可以是一个用来处理外部请求的线程池（比如netty的worker线程池）。一个用户请求有可能依赖其他多个外部服务，比如上图中的A,H,I,P，在不可靠的网络环境下，任何的RPC都可能会面临三种情况：成功、失败、超时。如果一次用户请求所依赖外部服务(A,H,I,P)有任何一个不可用，就有可能导致整个用户请求被阻塞。考虑到应用容器的线程数目基本都是固定的（比如tomcat的线程池默认200），当在高并发的情况下，某一外部依赖的服务超时阻塞，就有可能使得整个主线程池被占满，这是[长请求拥塞反模式](http://tech.meituan.com/performance_tuning_pattern.html)。
 
-![soa2](hystrix-defend-your-webapp/hystrix_soa2.png)
+![soa2](hystrix_defend_your_webapp/hystrix_soa2.png)
 
 更进一步，线程池被占满就会导致整个服务不可用，而依赖该服务的其他服务，就又可能会重复产生上述问题。因此整个系统就像雪崩一样逐渐的扩散、坍塌、崩溃了！
 
@@ -65,7 +65,7 @@ hystrix能够解决`服务提供者不可用`的场景。他采用了资源隔�
 
 hystrix采用了`命令模式`，客户端需要继承抽象类`HystrixCommand`并实现其特定方法。为什么使用命令模式呢？使用过`RPC`框架都应该知道一个远程接口所定义的方法可能不止一个，为了更加细粒度的保护单个方法调用，命令模式就非常适合这种场景。命令模式的本质就是分离方法调用和方法实现，在这里我们通过将接口方法抽象成`HystricCommand`的子类，从而获得安全防护能力，并使得的控制力度下沉到方法级别。
 
-![命令模式](hystrix-defend-your-webapp/hystrix_command_pattern.png)
+![命令模式](hystrix_defend_your_webapp/hystrix_command_pattern.png)
 
 ## 从简单例子入手
 
@@ -159,7 +159,7 @@ if(f.isDone()) {
 
 hystrix之所以能够防止雪崩的本质原因，是其运用了资源隔离模式。要解释资源隔离的概念，我们可以用船舱做比喻。一艘游轮一般都是一个一个舱室隔离开来的，这样如果某一个舱室出现火灾，就不会波及到其他船舱，从而影响整艘游轮（这个是弹性工程学的一个关键概念：舱壁）。软件资源隔离如出一辙，上文已经说过，由于服务提供者不可用，可能导致服务调用端主线程池被占满。此时如果采用资源隔离模式，将对远程服务的调用隔离到一个单独的线程池后，若服务提供者不可用，那么受到影响的只会是这个独立的线程池。如图：
 
-![soa3](hystrix-defend-your-webapp/hystrix_soa3.png)
+![soa3](hystrix_defend_your_webapp/hystrix_soa3.png)
 
 hystrix的线程池抽象是`HystrixThreadPool`类，它封装了JDK的`ThreadPoolExecutor`，然后通过并发策略`HystrixConcurrencyStrategy`对外提供工厂方法。我们这里只关心该线程池的核心配置，如下表：
 
@@ -235,7 +235,7 @@ protected List<String> getFallback() {
 
 熔断器与家里面的保险丝有些类似，当电流过大，保险丝熔断以保护我们的电器。在没有熔断器机制保护下，我们可能会无节操的重试，这会持续加大服务端压力，造成恶性循环；如果直接关闭重试功能，当服务端又可用的时候，我们又该如何恢复？熔断器正好适合这种场景：当请求失败比率(失败/总数)达到一定阈值后，熔断器开启，并休眠一段时间，这段休眠期过后熔断器将处与半开状态(`half-open`)，在此状态下将试探性的放过一部分流量(hystrix只支持single request)，如果这部分流量调用成功后，再次将熔断器闭合，否则熔断器继续保持开启并进入下一轮休眠周期。
 
-![熔断器状态变迁](hystrix-defend-your-webapp/cc_state.png)
+![熔断器状态变迁](hystrix_defend_your_webapp/cc_state.png)
 
 我们知道了熔断器的原理后，再重点看一下hystrix都支持哪些熔断器配置：
 

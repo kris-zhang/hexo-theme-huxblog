@@ -2,7 +2,7 @@
 title: 2016精选文章推荐(9月19日-9月24日)
 date: 2016-08-09T14:01:43.000Z
 subtitle: 9月19日-9月24日
-layout: post
+layout: false
 author: kris.zhang
 header-img: head.jpg
 wechat_pig: wechat.jpg
