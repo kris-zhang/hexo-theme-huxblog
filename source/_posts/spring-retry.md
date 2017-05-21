@@ -4,6 +4,7 @@ layout: post
 author: kris.zhang
 date: 2017-05-21 18:20:32
 header-img: head.jpg
+wechat_pig: head.jpg
 tags:
     - spring
     - 框架
@@ -19,7 +20,7 @@ tags:
 
 其中failback则是本文所要讨论的核心内容。有些rpc框架提供failback策略，比如dubbo，但dubbo的failback仅仅只是设置重试次数，功能单一。更多的RPC框架则懒得管这事儿，他们将failback策略实现交给用户自己去做，你爱怎么做就怎么做。
 
-那么思考一下，如果我们要自己做failback，比如如下场景：XXXFacade调用失败后，我们等20毫秒在重试，一共重试5次，如果依旧失败则打一条日志出来。一般人的实现，会做一个`for`循环，然后在使用一个`int n`作为计数，并且`catch`住XXXFacade异常后，`sleep`5s，最后判断n的次数。这个办法确实能实现该功能，但是重复早轮子，并且功能扩展性也不高。本文教大家使用spring-retry框架实现可定制化的调用重试策略。文章主要包含以下几个方面：
+那么思考一下，如果我们要自己做failback，比如如下场景：XXXFacade调用失败后，我们等20毫秒在重试，一共重试5次，如果依旧失败则打一条日志出来。一般人的实现，会做一个`for(int n; n < 5;)`循环，并且`catch XXXFacade`异常后`sleep(5s)`，最后判断n的次数。这个办法确实能实现该功能，但是重复早轮子，并且功能扩展性也不高。本文教大家使用spring-retry框架实现可定制化的调用重试策略。文章主要包含以下几个方面：
 
 - 整体概览
 - retry策略
@@ -82,13 +83,13 @@ tags:
 
 下面简单思考一下以上策略的实现方式。
 
-1. `NeverRetryPolicy`：判断是否重试的时候，直接返回false
-2. `AlwaysRetryPolicy`：判断是否重试的时候，直接返回true
-3. `SimpleRetryPolicy`：通过一个计数n，每次重试自增
-4. `TimeoutRetryPolicy`：保存第一次重试时间，每次进行重试判断 `当前毫秒时间-第一次重试时间 > 设置的时间间隔`
-5. `CircuitBreakerRetryPolicy`：与4类似
-6. `ExceptionClassifierRetryPolicy`：采用一个Map实现，每次异常的时候，拿到对应重试策略，在重试即可
-7. `CompositeRetryPolicy`：使用数据依次保存策略，执行的时候，顺序执行即可
+1. NeverRetryPolicy：判断是否重试的时候，直接返回false
+2. AlwaysRetryPolicy：判断是否重试的时候，直接返回true
+3. SimpleRetryPolicy：通过一个计数n，每次重试自增
+4. TimeoutRetryPolicy：保存第一次重试时间，每次进行重试判断 `当前毫秒时间-第一次重试时间 > 设置的时间间隔`
+5. CircuitBreakerRetryPolicy：与4类似
+6. ExceptionClassifierRetryPolicy：采用一个Map实现，每次异常的时候，拿到对应重试策略，在重试即可
+7. CompositeRetryPolicy：使用数据依次保存策略，执行的时候，顺序执行即可
 
 ## 回避策略
 
@@ -107,39 +108,30 @@ tags:
 
 下面思考一下以上策略的实现方式：
 
-1. `NoBackOffPolicy`：直接返回即可
-2. `FixedBackOffPolicy`: 直接通过Sleeper设置n秒即可
-3. `UniformRandomBackOffPolicy`:  FixedBackOffPolicy + Random()
-4. `ExponentialBackOffPolicy`：T = initial; T = T + T * multiplier
-5. `ExponentialRandomBackOffPolicy`：T = initial; T = (T + T * multiplier) * (1 + randomFloat() * (multiplier - 1))
+1. NoBackOffPolicy：直接返回即可
+2. FixedBackOffPolicy`: 直接通过Sleeper设置n秒即可
+3. UniformRandomBackOffPolicy:  FixedBackOffPolicy + Random()
+4. ExponentialBackOffPolicy：T = initial; T = T + T * multiplier
+5. ExponentialRandomBackOffPolicy：T = initial; T = (T + T * multiplier) * (1 + randomFloat() * (multiplier - 1))
 
 ## 其他主题
 
 ### 监听器和监控
 
+监听器接口如下：
+
 ```java
- RetryListener listener = new RetryListener( ){
-            @Override
-            public <T, E extends Throwable> boolean open(RetryContext context, RetryCallback<T, E> callback) {
-                // 第一次重试的时候会执行该方法
-                return true;
-            }
+    // 第一次重试的时候会执行该方法
+	<T, E extends Throwable> boolean open(RetryContext context, RetryCallback<T, E> callback);
 
-            @Override
-            public <T, E extends Throwable> void close(RetryContext context, RetryCallback<T, E> callback,
-                                                       Throwable throwable) {
-                // 重试结束后会调用改方法
-            }
+    // 重试结束后会调用改方法
+	<T, E extends Throwable> void close(RetryContext context, RetryCallback<T, E> callback, Throwable throwable);
 
-            @Override
-            public <T, E extends Throwable> void onError(RetryContext context, RetryCallback<T, E> callback,
-                                                         Throwable throwable) {
-                // 每次重试产生异常时会调用改方法
-            }
-        };
+    // 每次重试产生异常时会调用改方法
+	<T, E extends Throwable> void onError(RetryContext context, RetryCallback<T, E> callback, Throwable throwable);
 ```
 
-我理解的监听器是一个很鸡肋的功能，主要用于进行模板执行情况的监控：`new StatisticsListener(new DefaultStatisticsRepository())`
+我理解的监听器是一个很鸡肋的功能，主要用于监控模板执行情况：`new StatisticsListener(new DefaultStatisticsRepository())`
 
 ### 有状态和无状态重试
 
