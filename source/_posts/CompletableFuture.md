@@ -204,8 +204,8 @@ CompletableFuture有三个终结状态：完成、异常、取消。
 需要注意的是，cancel方法入参是没用的，你true也好，false也罢，均不生效，因为内部实现的时候，这参数根本没有用。这在jdk中算是奇葩之一了，好在注释写的清清楚楚的：
 
 >   @param mayInterruptIfRunning this value has no effect in this
->     * implementation because interrupts are not used to control
->     * processing.
+>     implementation because interrupts are not used to control
+>     processing.
 
 ## CompletableFuture行为接续
 
