@@ -160,7 +160,7 @@ for (i = 0; i < scanTimes + 1; i++) {
 
 以上方式能够很好的支持分片的水平扩展。但这里有一点需要注意，由于定时功能交由每台服务器自行处理，因此无统一时钟，所以每个任务可能并不是在一个时间点上同时执行，但这对分片场景来说无关紧要。
 
-以上的架构模型，基本上能够用于生产环境了，不过，如果让我们从头开发这样的一套分片调度系统，有点重复造轮子的感觉。我们可以直接使用开源项目，比如[elastic-job-lite](https://github.com/dangdangdotcom/elastic-job)，来满足我们的需求。
+以上的架构模型，基本上能够用于生产环境了，不过，如果让我们从头开发这样的一套分片调度系统，有点重复造轮子的感觉。我们可以直接使用开源项目，比如[elastic-job-lite](https://github.com/dangdangdotcom/elastic-job)，来满足我们的需求。
 
 但是，如果条件不允许我们使用zookeeper怎么办？
 
@@ -174,7 +174,7 @@ for (i = 0; i < scanTimes + 1; i++) {
 
 1. Splitter，用来进行整体划分，比如我们有1000张表：[0,1000)，如果集群有n台机器，那么很自然的每台机器所需要处理`1000/n`张表。
 2. Loader，接受到Splitter所分配的表，比如接到了第998张表(bill\_998)，那么loader则需要处理该表中的数据比如:`select id from bill_998 where status = 1 limit 200`。加载到所需要处理的全部id之后，下发给executor层。
-3. Executor层，接受Loader发过来的id，进行业务处理。
+3. Executor层，接受Loader发过来的id，进行业务处理（就是上文说的doSomething()）
 
 其中每层之间的调用可以直接采用RPC，Executor的处理亦可放入用户工作线程池，以避免占用RPC核心处理线程。同时，为减少请求数量，Loader层下发到Executor层的数据可以做合并处理。
 
