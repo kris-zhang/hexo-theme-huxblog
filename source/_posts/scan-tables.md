@@ -1,5 +1,5 @@
 ---
-title: 关于扫表的一点总结和思考
+title: 关于扫表的一点思考
 date: 2017-06-18 00:51:49
 layout: post
 author: kris.zhang
