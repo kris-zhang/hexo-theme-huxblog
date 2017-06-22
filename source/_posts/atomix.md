@@ -1,5 +1,5 @@
 ---
-title: 分布式强一致性框架Atomix学习
+title: 分布式一致性框架Atomix学习
 layout: post
 date: 2017-05-30T09:59:05.000Z
 author: kris.zhang
