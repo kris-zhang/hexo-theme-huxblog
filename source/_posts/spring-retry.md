@@ -32,7 +32,7 @@ tags:
  
 *Spring Retry* 框架广泛使用于`Spring Batch`,`Spring Integration`,` Spring for Apache Hadoop`等spring项目，由于spring-try源代码简单明确，本文不会讲其实现，只讲解其大体执行流和相应的框架抽象。其整体思路大致如下图所示：
 
-![srping](spring-retry/spring-retry.png)
+![spring](spring-retry/spring-retry.png)
 
 1. `RetryTemplate`，重试模板，是进入spring-retry框架的整体流程入口
 2. `RetryCallback`，重试回调，用户包装业务流，第一次执行和产生重试执行都会调用这个callback代码
