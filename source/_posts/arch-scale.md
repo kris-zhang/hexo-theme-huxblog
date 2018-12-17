@@ -1,5 +1,5 @@
 ---
-title: 《架构真经》读书笔记
+title: 《架构真经》读书笔记
 date: 2018-12-17 22:36:33
 author: kris.zhang
 header-img: head.jpg
