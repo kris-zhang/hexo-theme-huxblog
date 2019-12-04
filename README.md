@@ -43,3 +43,5 @@ hexo clean && hexo deploy // hexo will push the static files automatically into 
 
 ##### 4.Enjoy! 
 Please [**Star**](https://github.com/kaijun/hexo-theme-huxblog/stargazers) this Project if you like it! [**Following**](https://github.com/Kaijun) would also be appreciated!
+
+hexo server -p 7000
